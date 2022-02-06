@@ -1,1 +1,3 @@
-# pymath
+# Dépendances
+ - turtle
+ - matplotlib
