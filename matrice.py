@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 def multM(m1,m2):
-    n1=len(m1)
-    n2=len(m2)
-    m3=[[0 for i in range(n1)] for j in range(n1)]
-    for k in range(n1):
-        for i in range(n1):
-            res=0
+    if len(m1) != len(m2[0]):
+        return -1
+    n1 = len(m1)
+    n2 = len(m1[0])
+    n3 = min(n1, n2)
+    m3=[[0 for i in range(n3)] for j in range(n3)]
+    tmp = 0
+    for i in range(n1):
+        for k in range(n1):
             for j in range(n2):
-                res+=m1[i][j]*m2[j][k]
-            print(res)
-            m3[k][i]=res
+                tmp += m1[i][j]*m2[j][k]
+            m3[i][k] = tmp
+            tmp = 0
     return m3
 
 def genId(l,coef=1):
@@ -42,5 +45,5 @@ m3=[
 [3,-2],
 [1,4]
 ]
-print(multM(m1,m2))
+print(multM(m3,m3))
 print(inv(m3))
