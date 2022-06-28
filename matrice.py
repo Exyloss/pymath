@@ -32,18 +32,19 @@ def inv(m):
     det=a*d-b*c
     return [[d/det,-b/det],[-c/det,a/det]]
 
-m1 = [
-[1,2,3],
-[4,5,6]
-]
-m2=[
-[1,4],
-[2,5],
-[3,6]
-]
-m3=[
-[3,-2],
-[1,4]
-]
-print(multM(m3,m3))
-print(inv(m3))
+if __name__ == "__main__":
+    m1 = [
+    [1,2,3],
+    [4,5,6]
+    ]
+    m2=[
+    [1,4],
+    [2,5],
+    [3,6]
+    ]
+    m3=[
+    [3,-2],
+    [1,4]
+    ]
+    print(multM(m3,m3))
+    print(inv(m3))

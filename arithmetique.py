@@ -9,3 +9,6 @@ def pgcd(d,n):
 
 def ppcm(a,b):
     return a*b//pgcd(a,b)
+
+if __name__ == "__main__":
+    print(pgcd(1010101, 365))

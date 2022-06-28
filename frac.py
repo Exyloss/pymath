@@ -53,5 +53,6 @@ def floatToFrac(f):
         return Fraction(i,j)
     return None
 
-print(Fraction(4,6))
-print(floatToFrac(-5.2222))
+if __name__ == "__main__":
+    print(Fraction(4,6))
+    print(floatToFrac(-5.2222))
