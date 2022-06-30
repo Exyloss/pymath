@@ -20,6 +20,9 @@ def multM(m1,m2):
     return m3
 
 def estMatrice(m):
+    """
+    m: valeur vérifiée
+    """
     if not isinstance(m, list) or not isinstance(m[0], list):
         return False
     n = len(m)
@@ -43,6 +46,9 @@ def expM(m, e):
         return m_e
 
 def transpoM(m):
+    """
+    m: matrice à transposer
+    """
     if not estMatrice(m): return -1
     n1 = len(m[0])
     n2 = len(m)
@@ -53,17 +59,27 @@ def transpoM(m):
     return t
 
 def genId(l,coef=1):
+    """
+    l: ordre de la matrice identité
+    coef: valeur des coefficients en diagonale, par défaut 1
+    """
     m=[[0 for j in range(l)] for i in range(l)]
     for i in range(l):
         m[i][i] = coef
     return m
 
 def dim(m):
+    """
+    m: matrice dont nous voulons calculer la dimension
+    """
     if not estMatrice(m): return -1
     return (len(m),len(m[0]))
 
 def inv(m):
-    if not estMatrice(m): return -1
+    """
+    m: matrice 2x2 à inverser
+    """
+    if not (estMatrice(m) and dim(m) == (2,2)): return -1
     a=m[0][0]
     b=m[0][1]
     c=m[1][0]
