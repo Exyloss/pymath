@@ -53,7 +53,7 @@ def solve_diophantienne(a, b, c):
             signe[0] = "-"
         if a < 0:
             signe[1] = "+"
-        print(str(b)+"k"+"+"+str(abs(s2[0]))+" ; "+str(s2[1])+"-"+str(abs(a))+"k")
+        print(str(b)+"k"+signe[0]+str(abs(s2[0]))+" ; "+str(s2[1])+signe[1]+str(abs(a))+"k")
 
 if __name__ == "__main__":
     assert pgcd(1010101, 365) == 73
