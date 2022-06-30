@@ -87,6 +87,31 @@ def inv(m):
     det=a*d-b*c
     return [[d/det,-b/det],[-c/det,a/det]]
 
+def printM(m):
+    max_length = 0
+    for i in m:
+        for j in i:
+            if len(str(j)) > max_length:
+                max_length = len(str(j))
+    temp = "| "
+    for i in m:
+        for j in i:
+            val = str(j)
+            sens=0
+            while len(val) < max_length:
+                if sens == 0:
+                    val += " "
+                    sens = 1
+                else:
+                    val = " "+val
+                    sens = 0
+
+            val += " "
+            temp += val
+        temp += "|"
+        print(temp)
+        temp = "| "
+
 if __name__ == "__main__":
     m1 = [
     [1,2,3],
@@ -107,3 +132,4 @@ if __name__ == "__main__":
     print(estMatrice(m1))
     print(m1)
     print(transpoM(m1))
+    printM(m3)
