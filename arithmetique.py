@@ -5,10 +5,21 @@ def pgcd(d,n):
     """
     assert (isinstance(n, int) and isinstance(d, int)) == True, "Erreur, vous devez renseigner des entiers."
     while d != n:
-       if d > n:
-           d-=n
-       elif d < n:
-           n-=d
+        if abs(d) > abs(n):
+            if d > 0:
+               d -= abs(n)
+            elif d < 0:
+                d += abs(n)
+            else:
+                return -1
+        elif abs(d) < abs(n):
+            if n > 0:
+                n -= abs(d)
+            elif n < 0:
+                n += abs(d)
+            else:
+                return -1
+
     return d
 
 def ppcm(a,b):
@@ -45,7 +56,8 @@ def solve_diophantienne(a, b, c):
     s = pgcd_prod(a, b)
     p = ppcm(d, c)
     if p != c:
-        return -1
+        print("pas de solution")
+        quit()
     else:
         s2 = (s[0]*c//d, s[1]*c//d)
         signe = ["+", "-"]
@@ -58,4 +70,4 @@ def solve_diophantienne(a, b, c):
 if __name__ == "__main__":
     assert pgcd(1010101, 365) == 73
     assert pgcd_prod(1234, 5678) == (704, -153)
-    solve_diophantienne(5, 7, 1)
+    solve_diophantienne(21, 7, 14)
