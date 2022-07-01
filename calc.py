@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from math import exp, pi, sin, cos, sqrt, e
-from arithmetique import solve_diophantienne
+from arithmetique import *
 from solve import *
 from matrice import *
 from integrale import *
