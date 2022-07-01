@@ -3,6 +3,7 @@
 from math import exp, pi, sin, cos, sqrt, e
 from arithmetique import solve_diophantienne
 from solve import *
+from matrice import *
 r = "h"
 while r != "q":
     if r == "h":
@@ -23,6 +24,56 @@ while r != "q":
                 except:
                     print("erreur de syntaxe")
                     pass
+    elif r == "2":
+        try:
+            tab = []
+            while r != "s":
+                i = int(input("nombre de lignes:"))
+                j = int(input("nombre de colonnes:"))
+                m = [[0 for _ in range(j)] for _ in range(i)]
+                for k in range(i):
+                    for l in range(j):
+                        m[k][l] = "[X]"
+                        printM(m)
+                        val = int(input("("+str(k)+", "+str(l)+"):"))
+                        m[k][l] = val
+                printM(m)
+                tab.append(m)
+                index = len(tab)
+                r = input("s = phase de calcul:")
+            while r != "q":
+                print("1: produit")
+                print("2: transposée")
+                print("3: exposant")
+                print("4: historique")
+                r = input(":")
+                if r == "1":
+                    for i in range(len(tab)):
+                        print(str(i)+":")
+                        printM(tab[i])
+                    m1 = int(input("première matrice:"))
+                    m2 = int(input("seconde matrice:"))
+                    printM(tab[m1])
+                    print("X")
+                    printM(tab[m2])
+                    print("=")
+                    m = multM(tab[m1], tab[m2])
+                    printM(m)
+                    if len(tab) > 5:
+                        tab.pop(0)
+                    tab.append(m)
+                elif r == "2":
+                    for i in range(len(tab)):
+                        print(str(i)+":")
+                        printM(tab[i])
+                    m1 = int(input("matrice:"))
+                    m = transpoM(tab[m1])
+                    printM(m)
+                    if len(tab) > 5:
+                        tab.pop(0)
+                    tab.append(m)
+        except:
+            print("erreur")
     elif r == "3":
             try:
                 a = int(input("a:"))
