@@ -16,11 +16,11 @@ while r != "q":
     elif r == "1":
         while r != "q":
             r = input(">")
-            r.replace("^", "**")
+            r = r.replace("^", "**")
             if r != "q":
                 try:
                     res = eval(r)
-                    print(r)
+                    print(res)
                 except:
                     print("erreur de syntaxe")
                     pass
