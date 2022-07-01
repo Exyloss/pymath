@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Calculatrice en cours de développement...
 from math import exp, pi, sin, cos, sqrt, e
 from arithmetique import solve_diophantienne
 from solve import *
 from matrice import *
+from integrale import *
 r = "h"
 while r != "q":
     if r == "h":
@@ -11,6 +11,7 @@ while r != "q":
         print("2: calcul matriciel")
         print("3: résolveur équation 2nd degrès")
         print("4: résolveur diophantienne")
+        print("5: calcul d'intégrales")
         print("q: quitter")
         print("h: afficher cette aide")
     elif r == "1":
@@ -118,5 +119,12 @@ while r != "q":
                 print("erreur")
                 pass
             r = input("quitter = q:")
+    elif r == "5":
+        r = input("f(x):")
+        a = int(input("debut:"))
+        b = int(input("fin:"))
+        def f(x):
+            return eval(r)
+        print("intégrale (trapezes): "+str(integrale_trapeze(f, a, b, n=100000)))
 
     r = input("menu:")
