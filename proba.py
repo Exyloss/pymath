@@ -23,5 +23,19 @@ def binomial(n, p, oper, k, cs=5):
     else:
         return -1
 
+def normal(esp, et, a, b):
+    """
+    esp: espérence
+    et: écart-type
+    a: début de l'intervalle
+    b: fin de l'intervalle
+    """
+    from math import e, pi, sqrt
+    from integrale import integrale_trapeze
+    def f(x):
+        return 1/(et*sqrt(2*pi))*e**(-1/2*((x-esp)/et)**2)
+    return round(integrale_trapeze(f, a, b), 5)
+
 if __name__ == "__main__":
     print(binomial(20, 0.3, ">=", 5))
+    print(normal(10, 1, 10, 12))
