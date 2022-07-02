@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from pascal import pascal
 def binomial(n, p, oper, k, cs=5):
     """
     n: nombre de tirages
@@ -8,6 +7,7 @@ def binomial(n, p, oper, k, cs=5):
     k: P(X [oper] k)
     cs: chiffres significatifs, 5 par défaut
     """
+    from pascal import pascal
     if oper == "=":
         return round(pascal(n, k)*p**k*(1-p)**(n-k), cs)
     elif oper == "<=":
