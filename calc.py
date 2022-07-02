@@ -4,6 +4,7 @@ from arithmetique import *
 from solve import *
 from matrice import *
 from integrale import *
+from proba import *
 r = "h"
 while r != "q":
     if r == "h":
@@ -12,6 +13,7 @@ while r != "q":
         print("3: résolveur équation 2nd degrès")
         print("4: résolveur diophantienne")
         print("5: calcul d'intégrales")
+        print("6: probabilités")
         print("q: quitter")
         print("h: afficher cette aide")
     elif r == "1":
@@ -126,5 +128,42 @@ while r != "q":
         def f(x):
             return eval(r)
         print("intégrale (trapezes): "+str(integrale_trapeze(f, a, b, n=100000)))
+    elif r == "6":
+        print("1: loi binomiale")
+        print("2: loi normale")
+        while r not in "12q":
+            r = input(":")
+        if r == "1":
+            print("B(n; p)")
+            while r != "q":
+                try:
+                    n = int(input("n:"))
+                    p = float(input("p:"))
+                    assert 0 <= p <= 1
+                    print("P(X [oper] k)")
+                    oper = input("oper:")
+                    assert oper in ["=", "<=", ">="]
+                    k = int(input("k:"))
+                    print(binomial(n, p, oper, k))
+                except:
+                    print("erreur")
+                    pass
+                r = input("quitter = q:")
+        elif r == "2":
+            print("N(esp; et)")
+            while r != "q":
+                try:
+                    esp = float(input("espérance:"))
+                    et = float(input("écart-type:"))
+                    print("P(a <= X <= b)")
+                    a = float(input("a:"))
+                    b = float(input("b:"))
+                    print(normal(esp, et, a, b))
+                except:
+                    print("erreur")
+                    pass
+                r = input("quitter = q:")
+
+
 
     r = input("menu:")
