@@ -131,7 +131,8 @@ while r != "q":
     elif r == "6":
         print("1: loi binomiale")
         print("2: loi normale")
-        while r not in "12q":
+        print("3: dénombrement")
+        while r not in "123q":
             r = input(":")
         if r == "1":
             print("B(n; p)")
@@ -163,6 +164,18 @@ while r != "q":
                     print("erreur")
                     pass
                 r = input("quitter = q:")
+        elif r == "3":
+            while r != "q":
+                try:
+                    printM([["[X]"],["k"]])
+                    n = int(input(":"))
+                    printM([[n],["[X]"]])
+                    k = int(input(":"))
+                    print(pascal(n, k))
+                except:
+                    pass
+                r = input("quitter = q:")
+
 
 
 

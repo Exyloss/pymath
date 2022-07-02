@@ -10,4 +10,4 @@
  - calcul d'intégrales à l'aide de la méthode des trapezes
 # À faire
  - [X] Calculateur
- - [ ] support loi binomiale et dénombrement
+ - [X] support loi binomiale et dénombrement
