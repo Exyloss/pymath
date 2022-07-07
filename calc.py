@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from math import exp, pi, sin, cos, sqrt, e
+from math import exp, pi, sin, cos, sqrt, e, radians
 from pascal import pascal
 from arithmetique import *
 from solve import *
@@ -7,6 +7,7 @@ from matrice import *
 from integrale import *
 from proba import *
 r = "h"
+ans = "0"
 while r != "q":
     if r == "h":
         print("1: calcul linéaire")
@@ -21,13 +22,24 @@ while r != "q":
         while r != "q":
             r = input(">")
             r = r.replace("^", "**")
-            if r != "q":
+            if r != "q" and r != "h":
                 try:
-                    res = eval(r)
-                    print(res)
+                    ans = eval(r)
+                    print(ans)
                 except:
                     print("erreur de syntaxe")
                     pass
+            elif r == "h":
+                print("\033[4mvariables:\033[0;0m")
+                print("ans: valeur précédemment calculée")
+                print("e: valeur de e")
+                print("pi: valeur de pi")
+                print("\033[4mfonctions:\033[0;0m")
+                print("sqrt(x): racine carré de x")
+                print("cos(x), sin(x): cos/sin de x en radians")
+                print("radians(x): convertir x degrès en radians")
+                print("pascal(n, k): k parmis n")
+                print("pgcd(a, b), ppcm(a, b): pgcd et ppcm de a et b")
     elif r == "2":
         try:
             tab = []
