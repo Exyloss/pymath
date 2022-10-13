@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from math import exp, pi, sin, cos, sqrt, e, radians
+from math import pi, sin, cos, sqrt, e, radians
 from pascal import pascal
 from arithmetique import *
 from solve import *
@@ -95,22 +95,22 @@ while r != "q":
                 a = int(input("a:"))
                 b = int(input("b:"))
                 c = int(input("c:"))
-                signe = "+"
-                b_str = str(b)+"x"
+                signe1 = "+"
+                b_str  = str(b)+"x"
                 signe2 = "+"
-                c_str = str(c)
+                c_str  = str(c)
                 if b < 0:
                     signe1 = "-"
-                    b_str = str(abs(b))+"x"
+                    b_str  = str(abs(b))+"x"
                 elif b == 0:
                     signe1 = ""
-                    b_str = ""
+                    b_str  = ""
                 if c < 0:
                     signe2 = "-"
-                    c_str = str(abs(c))
+                    c_str  = str(abs(c))
                 elif c == 0:
                     signe2 = ""
-                    c_str = ""
+                    c_str  = ""
 
                 print("équation : "+str(a)+"x^2"+" "+signe1+" "+b_str+" "+signe2+" "+c_str+" = 0")
                 print(solve_snd_deg(a, b, c))
