@@ -129,7 +129,7 @@ while r != "q":
                 if b < 0:
                     signe = "-"
                 print("équation : "+str(a)+"x"+" "+signe+" "+str(abs(b))+"y = "+str(c))
-                print(solve_diophantienne(a, b, c))
+                solve_diophantienne(a, b, c)
             except:
                 print("erreur")
                 pass
