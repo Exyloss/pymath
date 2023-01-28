@@ -7,8 +7,7 @@ def multM(m1,m2):
     if len(m1[0]) != len(m2) or not (estMatrice(m1) and estMatrice(m2)):
         return -1
 
-    m3 = [[sum([m1[k][i]*m2[i][j] for i in range(len(m1[0]))]) for j in range(len(m2[0]))] for k in range(len(m1))]
-    return m3
+    return [[sum([m1[k][i]*m2[i][j] for i in range(len(m1[0]))]) for j in range(len(m2[0]))] for k in range(len(m1))]
 
 def estMatrice(m):
     """
@@ -47,6 +46,7 @@ def transpoM(m):
     for i in range(n2):
         for j in range(n1):
             t[j][i] = m[i][j]
+
     return t
 
 def genId(l,coef=1):
@@ -76,6 +76,8 @@ def inv(m):
     c=m[1][0]
     d=m[1][1]
     det=a*d-b*c
+    if det == 0:
+        return -1
     return [[d/det,-b/det],[-c/det,a/det]]
 
 def printM(m):
