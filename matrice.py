@@ -4,19 +4,10 @@ def multM(m1,m2):
     m1: matrice de gauche
     m2: matrice de droite
     """
-    if len(m1) != len(m2[0]) or not (estMatrice(m1) and estMatrice(m2)):
+    if len(m1[0]) != len(m2) or not (estMatrice(m1) and estMatrice(m2)):
         return -1
-    n1 = len(m1)
-    n2 = len(m1[0])
-    n3 = min(n1, n2)
-    m3=[[0 for i in range(n3)] for j in range(n3)]
-    tmp = 0
-    for i in range(n1):
-        for k in range(n1):
-            for j in range(n2):
-                tmp += m1[i][j]*m2[j][k]
-            m3[i][k] = tmp
-            tmp = 0
+
+    m3 = [[sum([m1[k][i]*m2[i][j] for i in range(len(m1[0]))]) for j in range(len(m2[0]))] for k in range(len(m1))]
     return m3
 
 def estMatrice(m):
@@ -126,7 +117,7 @@ if __name__ == "__main__":
     [3,-2],
     [1,4]
     ]
-    print(multM(m3,m3))
+    print(multM(m1,m2))
     print(expM(m3, 3))
     print(inv(m3))
     print(estMatrice(m1))
